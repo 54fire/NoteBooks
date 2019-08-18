@@ -1,0 +1,26 @@
+* 忽略文件 
+** 创建文件
+  创建 ==.gitignore== 文件, 然后写入忽略规则
+    #+BEGIN_SRC bash
+    cat .gitignore
+    ,*.[ao]
+    ,*~
+    #+END_SRC
+
+** 规则
+   - 空行或者#开头的行会被忽略
+   - 支持标准的glob模式
+   - 以斜杠(/)开头的模式可以用于禁止递归匹配
+   - 以斜杠(/)结尾的模式表示目录
+   - 以感叹号(!)开始的模式表示取反
+    #+BEGIN_SRC text
+    ,*.a            # 忽略.a类型的文件
+    !lib.a          # 仍然跟踪lib.a文件，即使上面一行指令要忽略.a类型的文件
+    /TODO           # 只忽略当前目录的TODO文件，而不忽略子目录下的TODO
+    build/          # 忽略build目录下的所有文件
+    doc/*.txt       # 忽略doc/notes.txt, 而不忽略doc/server/arch.txt
+    doc/**/*.pdf    # 忽略doc/目录下的所有.pdf文件
+    #+END_SRC
+    
+** 参考link
+   [[[https://github.com/github/gitignore]]]
